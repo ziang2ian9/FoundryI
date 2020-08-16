@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>KMUTT Foundry 2020</title>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<style>
+  header {
+  /*background-color: #666;*/
+  padding: 50px;
+  text-align: center;
+  font-size: 10px;
+  color: black;
+  font-family:Calibri;
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark  front-family=RSU" >
+  
+    <div class="container-fluid">
+        <!--<a class="navbar-brand" href="{% url 'home' %}">Foundry self-learning system 2020</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'reportsys_index' %}">report here</a>
+            </li>
+              {% if request.user.is_staff %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'add-machine' %}">add more machine</a>
+            </li>
+              {% endif %}
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'allmachine' %}">View machine</a>
+            </li>
+          </ul>
+
+
+
+         <!-- <div class="container-fluid">-->
+      <li style="float:right"  family-style='RSU'>
+  {% if user.is_authenticated %}
+        <span class="hello-msg" style='color:#F6C094' >Hello, {{request.user}}</span>&nbsp;&nbsp;&nbsp;
+        <span ><a  class="hello-msg" href="{% url 'logout' %}" style='color:#E8E609'>Logout</a></span>
+    {% else %}
+        <!--<span ><a  class="hello-msg" href="{% url 'login' %}">Login</a></span>&nbsp;&nbsp;&nbsp;-->
+       <span ><a  class="hello-msg" href="{% url 'sign-up' %}" style='color:#E8E609'>Doesn't have account?</a></span>&nbsp;&nbsp;&nbsp;
+    {% endif %}</li>
+  </div>
+
+        <!--</div>-->
+
+  
+
+    </div>
+    <!--{% if user.is_authenticated %}
+        <span class="hello-msg">Hello, {{request.user}}</span>&nbsp;&nbsp;&nbsp;
+        <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+    {% else %}
+        <span ><a  class="hello-msg" href="{% url 'login' %}">Login</a></span>&nbsp;&nbsp;&nbsp;
+        <span ><a  class="hello-msg" href="{% url 'sign-up' %}">Doesn't have account?</a></span>
+    {% endif %}-->
+
+
+    
+
+</nav>
+
+
+
+
+
+
+
+
+
+<div class="container">
+    {% block page_content %}   {% endblock %}
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
